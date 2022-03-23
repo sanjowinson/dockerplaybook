@@ -1,0 +1,25 @@
+- hosts: all
+   tasks:
+
+    - name: create install_folder
+      command: mkdir /home/ubuntu/ansibledocker
+      ignore_errors: True
+      become_user: ubuntu
+
+    - name: Download github docker file
+      get_url: 
+        url: https://github.com/docker/getting-started/archive/refs/heads/master.zip
+        dest: /home/ubuntu/ansibledocker
+
+    - name: Extract archive
+      unarchive:
+        src: /home/ubuntu/ansibledockermaster.zip
+        dest:/home/ubuntu/ansibledocker
+        remote_src: yes
+      become_user: ubuntu
+
+    - name: get into dockerfile path
+      command: sudo cd /home/ubuntu/ansibledocker/getting-started-master/
+
+    - name: docker compose
+      command: sudo docker-compose up -d
