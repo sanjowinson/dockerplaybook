@@ -1,0 +1,38 @@
+cd getting-started-master/
+  docker build -t getting-started-master .
+     docker ps -a
+    docker rm fd53b9f34c94
+    docker rm 28b9c78b1e9e
+     docker images
+    docker run -dp 3000:3000 getting-started-master
+    docker ps -a
+    
+   docker exec -it 2700d518e47a /bin/bash
+   docker exec -it 2700d518e47a /bin/sh
+   
+   
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   sudo chmod +x /usr/local/bin/docker-compose
+   docker-compose --version
+   docker-compose up
+   docker-compose up -d
+   docker ps -a
+   docker exec -it bfee8aa56739 /bin/sh
+  
+  
+  
+  ansible all -m ping -v
+   cd /ansible/docker/tasks
+   cd  docker/tasks/
+          main.yml
+  
+  We can create a new playbook tomention the roles and we have to run that play book
+  
+  vi docker.yml
+---
+-  hosts: all
+   Roles:
+    - docker
+
+  
+  ansible-playbook docker.yml
