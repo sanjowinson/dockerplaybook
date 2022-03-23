@@ -1,0 +1,12 @@
+ansible all -m ping -v
+   cd /ansible/docker/tasks
+   cd  docker/tasks/
+          main.yml
+  
+  We can create a new playbook tomention the roles and we have to run that play book
+  
+  vi docker.yml
+---
+-  hosts: all
+   Roles:
+    - docker
